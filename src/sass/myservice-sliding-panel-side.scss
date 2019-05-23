@@ -1,0 +1,295 @@
+/**********************************
+	The sliding panel side animates from the right side of the screen when triggered by a button. Examples: Log in panel and feedback panel.
+
+  Animated slide out panel
+	Author: http://codyhouse.co/gem/css-slide-in-panel/
+	Modified for use
+	Dependency: jquery-effects - custom jquery with only effects module
+
+**********************************/
+
+.panel-content .panel-btn {
+  background-color: #89ba2c;
+  border-radius: 50em;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5), 0 0 5px rgba(0, 0, 0, 0.1);
+  color: $white;
+  display: inline-block;
+  font-weight: bold;
+  padding: 1em 2em;
+  position: relative;
+
+  transition: all 0.2s;
+}
+
+.no-touch .panel-content .panel-btn:hover {
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5), 0 0 20px $rgba-black-20;
+}
+
+.pagination .panel-close {
+  margin-left: 0;
+  margin-top: 0.5em;
+}
+
+.panel,
+.panel-home-help {
+  background: rgba(0, 0, 0, 0.5);
+  height: 100%;
+  left: 0;
+  position: fixed;
+  top: 0;
+  transition: visibility 0s 0.6s;
+  visibility: hidden;
+  width: 100%;
+  z-index: 9999;
+}
+
+.panel::after,
+.panel-home-help::after {
+
+  background: transparent;
+  cursor: pointer;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  transition: background 0.3s 0.3s;
+  width: 100%;
+}
+
+.panel.is-visible,
+.panel-home-help.is-visible {
+  transition: visibility 0s 0s;
+  visibility: visible;
+}
+
+.panel.is-visible::after,
+.panel-home-help.is-visible::after {
+  background: rgba(0, 0, 0, 0.6);
+  transition: background 0.3s 0s;
+}
+
+.panel {
+  .panel-header {
+
+    h2 {
+      color: $white;
+      float: left;
+      font-size: 1.5rem;
+      margin: 0.3em 0 0;
+      padding-left: 5%;
+    }
+  }
+}
+
+.panel-header {
+  background: $blue;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
+  height: 65px;
+  line-height: 50px;
+  position: fixed;
+  transition: top 0.3s 0s;
+  width: 90%;
+  z-index: 2;
+
+
+
+  a.panel-close {
+    background: transparent url('../images/ico-close-white.svg') no-repeat 0 12px;
+    background-size: 38px 38px;
+    border-bottom: 0;
+    color: $white;
+    float: right;
+    margin-right: 5%;
+    padding: 6px 0 0 46px;
+    text-decoration: none;
+
+    &:focus,
+    &:hover {
+      background: transparent url('../images/ico-close-black.svg') no-repeat 0 12px;
+      background-size: 38px 38px;
+    }
+  }
+}
+
+.panel-container {
+  background: $white;
+  box-shadow: -10px 0 15px $rgba-black-20;
+  height: 100%;
+  position: fixed;
+  right: 0;
+  top: 0;
+  transform: translate3d(100%, 0, 0);
+  transition-delay: 0.3s;
+  transition-duration: 0.3s;
+  transition-property: transform;
+  width: 90%;
+  z-index: 1;
+
+  .uikit-text-input__label {
+    margin-top: 20px;
+  }
+}
+
+.from-right .panel-header,
+.from-left .panel-header {
+  top: -70px;
+}
+
+.from-right .panel-header {
+  right: 0;
+}
+
+.is-visible .panel-header {
+  top: 0;
+  transition: top 0.3s 0.3s;
+}
+
+@media only screen and (min-width: $small-handheld) {
+  .pagination .panel-close {
+    margin-left: 0.8em;
+    margin-top: 0;
+  }
+
+  .panel-close--first {
+    margin-left: 0 !important;
+  }
+}
+
+@media only screen and (min-width: $large-handheld) {
+  .panel-header {
+    width: 70%;
+  }
+}
+
+@media only screen and (min-width: $medium-tablet) {
+  .panel-header {
+    width: 44%;
+  }
+}
+
+
+
+.is-visible {
+  .panel-container {
+    transform: translate3d(0, 0, 0);
+    transition-delay: 0s;
+  }
+}
+
+@media only screen and (min-width: $large-handheld) {
+  .panel-container {
+    width: 70%;
+  }
+}
+
+@media only screen and (min-width: $medium-tablet) {
+  .panel-container {
+    width: 44%;
+  }
+}
+
+.panel-content {
+
+  // smooth scrolling on touch devices 
+  -webkit-overflow-scrolling: touch;
+  // height: 80%;
+  height: 90%;
+  left: 0;
+  overflow: auto;
+  padding: 1em 5% 0;
+  position: absolute;
+  top: 65px;
+  width: 90%;
+}
+
+/* Custom additions for gestures
+ * The state it goes thorugh are: closed -> about to open -> opening -> (closing --OR-- swipe-closing') -> closed
+ * there are no rules for closed because we only need it when using React - and it can handle the situation by removing from the dom entirely
+ * There are no rules for 'about to open' and 'closing' because they are identical to the default rules
+ * There are no rules for 'opening' because they are identical to the existing 'is-visible'
+ */
+.swipe-closing {
+  transition: visibility 0s 0.3s;
+
+  .panel-header {
+    top: 0;
+    transform: translateX(100%);
+    transition: transform 0.3s 0s;
+  }
+
+  .panel-container {
+    transition-delay: 0s;
+  }
+}
+
+// Help button available on claim flow screens
+.btn-panel-help {
+  bottom: 0.5em;
+  padding: 0;
+  position: fixed;
+  right: 0;
+  width: auto;
+  z-index: 999;
+
+  .uikit-btn--help {
+    background: $gray-light url('../images/ico-phone-gray.svg') no-repeat center 10px;
+    background-color: $gray-light;
+    background-size: 20px 20px;
+    border: 1px solid $gray-dark;
+    border-radius: $uikit-border-radius 0 0 $uikit-border-radius;
+    border-right: 0;
+    box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.4);
+    color: $gray-dark;
+    display: inline-block;
+    margin-right: -1px;
+    padding: 30px 13px 5px;
+
+    &:focus,
+    &:hover {
+      background: $blue-dark url('../images/ico-phone-white.svg') no-repeat center 10px;
+      background-size: 20px 20px;
+      color: $white;
+    }
+  }
+}
+
+
+@media only screen and (min-width: $large-handheld) {
+  .btn-panel-help {
+    bottom: auto;
+    top: 16vh;
+
+    .uikit-btn--help {
+      background-position-y: 15px;
+      background-size: 20px 20px;
+      box-shadow: -2px 2px 10px 0 $rgba-black-20;
+      padding: 35px 1em 0.5em;
+
+      &:focus,
+      &:hover {
+        background-position-y: 15px;
+        background-size: 20px 20px;
+        color: $white;
+
+      }
+    }
+  }
+}
+
+.ico-email,
+.ico-phone {
+  background-size: 20px 20px;
+  display: inline-block;
+  height: 20px;
+  margin-bottom: -4px;
+  margin-right: 10px;
+  width: 20px;
+}
+
+.ico-email {
+  background: url('../images/ico-email-blue.svg') no-repeat 0 0;
+}
+
+.ico-phone {
+  background: url('../images/ico-phone-blue.svg') no-repeat 0 0;
+}

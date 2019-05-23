@@ -1,0 +1,63 @@
+/**********************************
+	Footer controls the gov crest logo and legal content links within the footer of most pages.
+
+**********************************/
+
+.uikit-footer--gradient {
+  background: $gray-light;
+  background: linear-gradient($gray-light, $white);
+}
+
+.uikit-footer--white {
+  background-color: $white;
+}
+
+.uikit-footer {
+  padding-bottom: 3.5em;
+
+  img {
+    display: block;
+    margin: 0 auto 1em auto;
+    max-height: 64px;
+    max-width: 300px;
+    text-align: center;
+  }
+
+  .uikit-link-list--inline {
+    text-align: center;
+    width: 100%;
+  }
+
+  hr {
+    border-top: 1px solid $gray-mild;
+    margin: 1em 0 1em 0;
+    padding: 0;
+  }
+
+  ul {
+    max-width: 100%;
+  }
+}
+
+@media only screen and (min-width: $medium-handheld) {
+  .uikit-footer {
+    padding-bottom: 1.6em;
+  }
+}
+
+@media only screen and (min-width: $medium-tablet) {
+  .uikit-footer {
+    img {
+      display: inline-block;
+      margin: 0.5em 0 1em 0;
+      max-width: 300px;
+      text-align: left;
+    }
+
+    .uikit-link-list--inline {
+      text-align: right;
+      width: auto;
+    }
+  }
+}
+

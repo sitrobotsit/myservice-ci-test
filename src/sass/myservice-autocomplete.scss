@@ -1,0 +1,71 @@
+// Controls typeahead styling. This is the list of suggestions that appear for selection 
+// when typing the first few characters into a text field. Example: select diagnosis.
+
+
+.block {
+  flex-basis: 50%;
+  flex-grow: 1;
+  padding: 0 30px;
+}
+
+.selected-option {
+  margin-bottom: 20px;
+}
+
+.s-typeahead-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.s-typeahead-input {
+  z-index: 1;
+}
+
+// Needed for correct dropdown rendering
+.s-typeahead-list--wrapper {
+  display: flex;
+  position: absolute;
+  width: 100%;
+  z-index: 5;
+
+  .s-typeahead-list {
+    background: $white;
+    border: 1px solid $gray;
+    box-sizing: border-box;
+    flex-direction: column;
+    list-style: none;
+    margin: $margin-zero;
+    max-height: 210px;
+    max-width: 47.16em; // needed for zoom-out sizing
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding: 0;
+    position: relative;
+    top: -8px;
+    width: calc(90% + 16px);
+
+    .s-typeahead-list-item {
+      background-color: $white;
+      border-bottom: 1px solid $gray-light;
+      margin: $margin-zero;
+      padding: 8px;
+      text-align: left;
+      width: 100%;
+
+      &:last-child {
+        border: 0;
+      }
+
+      &:hover {
+        background-color: $gray-light;
+        color: $black;
+      }
+    }
+
+    .s-typeahead-list-item--selected {
+      background-color: $blue;
+      color: $white;
+      font-weight: 700;
+    }
+  }
+}

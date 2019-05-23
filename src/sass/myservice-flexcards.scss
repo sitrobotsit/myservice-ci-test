@@ -1,0 +1,92 @@
+/**********************************
+	Styling of cards such as cover cards on authenticated home page
+
+**********************************/
+
+// Add cover card on auth home page
+
+.cta-card {
+  background-color: $white;
+  background-size: 50px 50px;
+  border: 0;
+  border-radius: $uikit-border-radius;
+  box-shadow: 0 1px 5px 1px rgba(0, 0, 0, 0.1);
+  display: block;
+  font-size: 1.5rem;
+  line-height: 1.3;
+  min-height: 65px;
+  padding: 0 2.5em 1em;
+  text-align: center;
+  text-decoration: none;
+
+  button {
+    min-width: 70%;
+  }
+
+  .icon {
+    height: 40px;
+    padding-top: 1em;
+    width: 40px;
+  }
+
+  h2 {
+    border-bottom: 1px solid $gray-light;
+    font-size: 1.2rem !important;
+    font-weight: 500 !important;
+    line-height: 1.1;
+    margin-bottom: 1em;
+    padding: 1em 0.5em 0.5em 0.5em;
+
+    img {
+      display: none;
+    }
+  }
+}
+
+.card-disabled {
+  h2 {
+    color: $gray-mid;
+  }
+}
+
+@media only screen and (min-width: $medium-handheld) {
+  .cta-card {
+    h2 {
+      img {
+        display: inline-block;
+        height: 30px;
+        width: 30px;
+      }
+    }
+  }
+
+  .no-cover {
+    .no-cover-card {
+      margin-right: 1.5em;
+
+      .no-cover-card a {
+        min-height: 40px !important;
+      }
+    }
+
+    .add-claim-content {
+      h2 {
+        font-size: 1.5rem !important;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: $medium-tablet) {
+  .no-cover {
+    .add-claim-content {
+      p {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
+img {
+  max-width: 100%; // stop images from breaking out of their bounding boxes.
+}

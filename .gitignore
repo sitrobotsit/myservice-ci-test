@@ -1,0 +1,37 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Runtime data
+pids
+*.pid
+*.seed
+
+# Dependency directories
+node_modules
+
+# Optional npm cache directory
+.npm
+
+# Optional REPL history
+.node_repl_history
+
+# Css files
+docs/css
+
+# OS auto files
+.DS_Store
+
+# new DTA modules 
+pancake
+
+
+# don't know why this is here... 
+views/auth/claim/pages/sp-qs-1.ejs
+views/auth/claim/pages/sp-qs-1.ejs
+views/auth/claim/pages/sp-qs.ejs
+
+# backstop stuff
+backstop_data/*
+!backstop_data/engine_scripts

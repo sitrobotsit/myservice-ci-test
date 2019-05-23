@@ -1,0 +1,549 @@
+/**********************************
+  This SASS file is used to control layout that is unique to the unathenticated home page. Example: large feature with background image, 1, 2, 3 steps and introductory content.
+
+**********************************/
+
+//iPhone - default
+
+// Hero section of homepage containing catchy one-liner and Register/Login buttons
+
+.section-hero {
+  background-image: url('../images/bg-header.svg');
+  background-position: 150% 0;
+  background-repeat: no-repeat;
+  background-size: contain;
+  padding: 0 0 1em 0;
+  text-align: center;
+}
+
+.section-hero__logo {
+  margin: 2em 0 0 0;
+  width: 100%;
+}
+
+.section-hero__heading {
+  font-size: 2.4em;
+  line-height: normal;
+  margin: 1em 0 0.6em 0;
+}
+
+.section-hero__subheading {
+  font-size: 1.5em;
+  line-height: 1.4em;
+  margin: 0 0 1em 0;
+}
+
+.section-hero__btn {
+  margin: 0.4em 0 0 0;
+  padding: 1.2em;
+}
+
+.section-hero__btn--text {
+  vertical-align: middle;
+}
+
+.section-hero__btn--image {
+  height: 17px;
+  margin-top: 3px;
+  vertical-align: middle;
+}
+
+/* Section divider */
+
+.section-hero__divider {
+  background-color: $blue-midnight;
+  svg {
+    height: 60px;
+  }
+}
+
+svg#section-hero-divider--color {
+	pointer-events: none;
+}
+
+#section-hero-divider--color path {
+	fill: $white;
+	stroke: $white;
+  stroke-width: 2;
+}
+
+/* Story divider */
+
+
+// Story section of homepage containing an overview of the benefits of MyService
+
+.story {
+	background-color: $blue-dark;
+  color: $white;
+}
+
+.story__section {
+  padding: 0 2em 1em 2em;
+}
+
+.story__section--padded {
+padding-top: 8em !important;
+}
+
+.story__section .story__three-column {
+  padding: 0 0 0 0;
+}
+
+.story__three-column .story__heading--left {
+  font-size: 1.4em;
+}
+
+.story__heading {
+  font-size: 1.8em;
+  text-align: center;
+}
+
+.story__heading--left {
+  font-size: 1.6em;
+  margin-bottom: 0.2em;
+  text-align: left;
+}
+
+.story__image-box {
+  text-align: center;
+}
+
+.story__image {
+  width: 100%;
+}
+
+.story__image--small {
+  width: 140px;
+}
+
+.story__text {
+  font-size: 1em;
+}
+
+
+ul.story-points {
+  list-style-type: none;
+	padding-left: 1.5em;
+
+  .uikit-body & li {
+    margin-bottom: 0.6em;
+  }
+
+  li:before {
+    content: "\2714\0020";
+		float: left;
+		margin-left: -1.5em;
+  }
+}
+
+.pointing-block {
+	background: $blue-midnight;
+	margin: 0;
+	position: relative;
+
+	.pointing-block__top {
+		height: 60px;
+		left: 0;
+		overflow: hidden;
+		position: absolute;
+		top: -60px;
+		width: 100%;
+	}
+	
+	.pointing-block__top::before {
+		border-bottom: 0;
+		border-left: 50vw solid $blue-midnight;
+		border-right: 50vw solid $blue-midnight;
+		border-top: 60px solid transparent;
+		content: $content-blank;
+		left: -50vw;
+		margin-left: 50%;
+		position: absolute;
+	}
+	
+	.pointing-block__bottom {
+		bottom: -60px;
+		height: 60px;
+		left: 0;
+		overflow: hidden;
+		position: absolute;
+		width: 100%;
+	}
+	
+	.pointing-block__bottom::before {
+		border-bottom: 60px solid transparent;
+		border-left: 50vw solid transparent;
+		border-right: 50vw solid transparent;
+		border-top: 60px solid $blue-midnight;
+		content: $content-blank;
+		left: -50vw;
+		margin-left: 50%;
+		position: absolute;
+	}
+}
+
+
+.heading--spacer {
+  display: block;
+  margin: 0 0 2em 0;
+  padding-bottom: 0.5em;
+  width: 80px;
+}
+
+//iPad
+
+@media only screen and (min-width: $AU-media-sm) {
+
+  .section-hero {
+    background-image: url('../images/bg-header-cropped.svg');
+    background-position: 100% 0;
+    padding: 1em 0 1em 0;
+    text-align: center;
+  }
+
+  .section-hero__divider {
+    svg {
+      height: 100px;
+    }
+  }
+
+  .story__divider {
+    svg {
+      height: 100px;
+    }
+  }
+
+  .story__section {
+    padding: 0 3em 1em 3em;
+  }
+
+  .story__section .story__three-column {
+    padding: 0 0.5em 0 0.5em;
+  }
+
+  .story__three-column .story__heading--left {
+    font-size: 1.1em;
+  }
+
+  .story__heading--left {
+    font-size: 1.2em;
+    margin-bottom: 0.3em;
+  }
+
+  .story__image--small {
+    width: 120px;
+  }
+
+  .heading--spacer {
+    margin: 0 0 0.4em 0;
+  }
+
+}
+
+//Screen
+
+@media only screen and (min-width: $AU-media-md) {
+  .section-hero__logo {
+    margin: 3em 0 0 0;
+    width: auto;
+  }
+
+  .section-hero__heading {
+    font-size: 2.5em;
+    margin: 0.8em 0 0.3em 0;
+  }
+
+  .section-hero__subheading {
+    font-size: 1.5em;
+    line-height: normal;
+  }
+
+  .story__section {
+    margin: 1em 0 2em 0;
+  }
+
+  .story__section .story__three-column {
+    padding: 0 2em 0 2em;
+  }
+
+  .story__heading {
+    font-size: 1.6em;
+  }
+
+  .story__three-column .story__heading--left {
+    font-size: 1.3em;
+  }
+
+  .story__heading--left {
+    font-size: 1.4em;
+    margin-bottom: 0.3em;
+  }
+
+  .story__text {
+    font-size: 1.2em;
+  }
+
+  .story-points {
+    font-size: 1.2em;
+  }
+
+  .heading--spacer {
+    margin: 0 0 2em 0;
+  }
+
+  .story__image {
+    width: 90%;
+  }
+  
+  .story__image--small {
+    width: 60%;
+  }
+
+  .pointing-block {
+  
+    .pointing-block__top {
+      height: 100px;
+      top: -100px;
+    }
+    
+    .pointing-block__top::before {
+      border-top: 100px solid transparent;
+    }
+    
+    .pointing-block__bottom {
+      bottom: -100px;
+      height: 100px;
+    }
+    
+    .pointing-block__bottom::before {
+      border-bottom: 100px solid transparent;
+      border-top: 100px solid $blue-midnight;
+    }
+  }
+}
+
+@media only screen and (min-width: $AU-media-lg) {
+
+  .story__section {
+    margin: 1em 0 4em 0;
+  }
+  
+  .heading--spacer {
+    margin: 0 0 3em 0;
+  }
+
+  .story__heading {
+    font-size: 2em;
+  }
+
+  .story__heading--left {
+    font-size: 1.8em;
+    margin-bottom: 0.3em;
+  }
+
+}
+
+
+//Grid flexbox layout
+
+.mys-grid {
+  .mys-grid__row {
+    display: block;
+    margin-left: -1em;
+    margin-right: -1em;
+    
+  }
+
+  @include AU-media('xs') {
+    .mys-grid__row {
+      display: flex;
+    }
+  
+    .mys-grid__cell {
+			box-sizing: border-box;
+      float: left;
+			padding: 0 1em;
+      width: 50%;
+    }
+
+    .mys-grid__cell:last-child {
+      flex-basis: 50%;
+    }
+
+    .mys-grid__row:nth-child(even) .mys-grid__cell:last-child {
+      order: -1;
+    }
+  }
+
+  @include AU-media('md') {
+  
+    .mys-grid__cell:last-child {
+      flex-basis: 75%;
+    }
+
+  }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+// Summary box to call out important highlights on content pages
+
+.summary {
+  background-color: $feature-background;
+  border-bottom: 1px solid $feature-border;
+  margin-bottom: 2em;
+  padding: 0.25em 1.5em;
+
+  h4 {
+    font-size: 1.3rem;
+    margin-top: 0;
+  }
+
+  table {
+    th {
+      background-color: $white;
+      border-bottom: 1px solid #eee;
+    }
+  }
+}
+
+/*  SECTIONS  */
+.feature-section {
+  clear: both;
+  margin: 0;
+  padding: 0;
+}
+
+/*  GROUPING  */
+.feature-group:before,
+.feature-group:after {
+  content: $content-blank;
+  display: table;
+}
+
+.feature-group:after {
+  clear: both;
+}
+
+.feature-group {
+  zoom: 1; /* For IE 6/7 */
+}
+
+/*  COLUMN SETUP  */
+.feature-col:first-child {
+  margin-left: 0;
+}
+
+.feature-col {
+  margin: 1em 0 1em 0;
+}
+
+.feature-1-of-5, .feature--spacer, .feature--wide, .feature--narrow {
+  width: 100%;
+}
+
+.feature--spacer, .feature--narrow {
+  display: none;
+}
+
+@media only screen and (min-width: $small-handheld) {
+  .feature-col {
+    margin: 3em;
+    text-align: left;
+  }
+
+  .howitworks-img {
+    display: inline-block;
+  }
+
+  .feature-body {
+    display: inline-block;
+    margin: 0 0 1em 1em;
+    padding: 0.3em 0 0 0;
+    text-align: left;
+    vertical-align: top;
+  }
+}
+
+@media only screen and (min-width: $medium-handheld) {
+  .feature-col {
+    display: block;
+    float: left;
+    margin: 1em 0 1em 1.6%;
+    text-align: center;
+  }
+
+  .feature-body {
+    text-align: center;
+  }
+
+  /*  Grid spacing  */
+  .feature-1-of-5 {
+    width: 20%;
+  }
+
+  .feature--wide {
+    width: 28%;
+  }
+
+  .feature--narrow {
+    width: 7%;
+  }
+}
+
+@media only screen and (min-width: $large-handheld) {
+  .feature-1-of-5 {
+    width: 18.72%;
+  }
+
+  .feature--wide {
+    width: 26%;
+  }
+
+  .feature--narrow {
+    width: 9%;
+  }
+
+  .feature--spacer {
+    width: 1%;
+  }
+}
+
+@media only screen and (min-width: $medium-tablet) {
+  .feature--wide {
+    width: 25%;
+  }
+
+  .feature--spacer {
+    width: 9%;
+  }
+}
+
+.wrap {
+  overflow: auto;
+  position: relative;
+}
+
+.sticky-menu {
+  position: absolute;
+  .fix-menu & {
+    position: fixed;
+    top: 10px;
+  }
+}
+
+
+
+
+
+

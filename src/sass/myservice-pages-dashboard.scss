@@ -1,0 +1,34 @@
+/**********************************
+	This SASS file controls any unique styling that apply to the authenticated dashboard. Most of the styling for this page is controlled in myservice-widgets.
+	
+**********************************/
+.authenticated-home {
+	background-color: $gray-light;
+	h1 {
+		font-size: 1.1rem;
+		font-weight: 500 !important;
+		line-height: 1em;
+		margin: 1em 0 0.4em 0;
+		padding-top: 1em;
+	}
+
+	h2 {
+		margin-bottom: 0;
+		margin-top: 0;
+		padding: 0.5em 0 0.5em 0;
+	}
+
+	h2 img {
+		height: 38px;
+		vertical-align: top;
+		width: 38px;
+	}
+
+	h3 {
+		font-size: 1.1rem;
+		font-weight: 500 !important;
+		margin: 0 0 0.5em 0;
+		margin-top: 0;
+	}
+}
+
